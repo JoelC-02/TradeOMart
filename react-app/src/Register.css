@@ -1,0 +1,64 @@
+.register {
+    text-align: center;
+    background-color: whitesmoke;
+    padding-bottom: 20px;
+}
+
+.register h1 {
+    font-size: 2rem;
+}
+
+.register input {
+    display: block;
+    width: 350px;
+    height: 40px;
+    border-radius: 0px;
+    border: 2.2px grey solid;
+    padding-left: 1%;
+    margin-right: 0%;
+}
+
+.register #FN {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+}
+
+.register #LN {
+    margin-top: -2px;
+}
+
+.register #pass {
+    margin-top: -2px;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.register #mail {
+    margin-top: -2px;
+}
+
+.register .button {
+    color: white;
+    width: 220px;
+    padding-bottom: 0.8%;
+    margin-top: 1.7%;
+}
+
+.register .container-fluid {
+    padding-left: 38%;
+    margin-bottom: 2%;
+    text-align: left;
+}
+
+.register .middle {
+    padding-top: 10%;
+    padding-bottom: 2%;
+}
+
+.register i {
+    margin-bottom: 2%;
+}
+
+.register .signup_redirect {
+    margin-top: 4.5%;
+}

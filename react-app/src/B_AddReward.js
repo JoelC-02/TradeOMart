@@ -6,7 +6,7 @@ import { auth, db, logout } from "./firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 import Swal from 'sweetalert2'
 
-function B_AddProduct() {
+function B_AddReward() {
   const [user, loading, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
@@ -39,7 +39,7 @@ function B_AddProduct() {
     for (let [key, value] of formData.entries()) {
       urlencoded.append(key, value);
     }
-    fetch(process.env.REACT_APP_API_URL+"baddproduct", {
+    fetch(process.env.REACT_APP_API_URL+"baddreward", {
         method: 'POST',
         headers: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -50,7 +50,7 @@ function B_AddProduct() {
         if(res.status == 200) {
           Swal.fire({
             icon: 'success',
-            title: 'Product added in marketplace'
+            title: 'Reward task added'
           })
         }else {
           Swal.fire({
@@ -85,20 +85,20 @@ function B_AddProduct() {
           <img src={require("./images1/cart.png")} width="30px" height="30px" />
         </div>
         <body>
-          <h1>Add products</h1>
+          <h1>Add rewards</h1>
           <form className="myForm" onSubmit={handleSubmit}>
             <p>
-              <label>Product name
+              <label>Reward name
               <input type="text" name="name" required />
               </label>
             </p>
             <p>
-              <label>Seller Contact
-              <input type="tel" name="contact" required />
+              <label>Required reward points
+              <input type="number" name="points" required />
               </label>
             </p>
             <fieldset>
-              <legend>Faulty Product</legend>
+              <legend>Incase of Faulty Product</legend>
               <p><label className="choice"> <input type="radio" name="fault" required value="return" />Return</label></p>
               <p><label className="choice"> <input type="radio" name="fault" required value="exchange" />Exchange</label></p>
               <p><label className="choice"> <input type="radio" name="fault" required value="NA" />Neither</label></p>
@@ -116,11 +116,11 @@ function B_AddProduct() {
             </p>
             <p>
               <label>
-                Country of manufacture
-                <select id="origin" name="country">
-                  <option value="" selected="selected">Select One</option>
-                  <option value="India" >India</option>
-                  <option value="Exported" >Exported</option>
+                Reward expiration
+                <select id="origin" name="expiry">
+                    <option value="" selected="selected">Select One</option>
+                    <option value="6 months" >6 months</option>
+                    <option value="3 months" >3 months</option>
                 </select>
               </label>
             </p>
@@ -137,7 +137,7 @@ function B_AddProduct() {
             <br /><br /><br /><br /><br />
             Add Image for product
             <hr /><hr /><hr /><input type="file" accept="image/*" />
-            <p><button>Sell Product</button></p>
+            <p><button>Add Reward</button></p>
           </form>
         </body>
       </div>
@@ -146,4 +146,4 @@ function B_AddProduct() {
   );
 }
 
-export default B_AddProduct;
+export default B_AddReward;

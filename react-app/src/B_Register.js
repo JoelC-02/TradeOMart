@@ -8,7 +8,7 @@ import {
 import Swal from 'sweetalert2'
 import "./Register.css";
 
-function Register() {
+function B_Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
@@ -23,7 +23,7 @@ function Register() {
   };
   useEffect(() => {
     if (loading) return;
-    if (user) navigate("/dashboard");
+    if (user) navigate("/b/dashboard");
   }, [user, loading]);
   return (
     <div className="register">
@@ -33,7 +33,7 @@ function Register() {
     </div>
     <div className = "container-fluid">
         <p>Sign up here : </p>
-        <form id = "my-form">
+        <form action="/b/addproduct" method="post" id = "my-form">
             <input type="text" name = "Name" placeholder="Full Name" id = "FN" value={name} onChange={(e) => setName(e.target.value)} />
             <input type="email" name = "email" placeholder="Email ID" id = "mail" value={email} onChange={(e) => setEmail(e.target.value)} />
             <input type="password" name = "password" placeholder="Password" id = "pass" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -41,10 +41,10 @@ function Register() {
     </div>
     <button type="submit" className="btn btn-lg bg-primary button" onClick={register}>Create Account</button>
     <div className = "signup_redirect">
-        <p>Already have one? Login <a href="/login" className="link-primary">here</a></p>
+        <p>Already have one? Login <a href="/b/login" className="link-primary">here</a></p>
     </div>
     </div>
   );
 }
 
-export default Register;
+export default B_Register;

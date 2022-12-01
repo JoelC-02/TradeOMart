@@ -1,8 +1,9 @@
 import express from 'express';
-import { indexPage, messagesPage, addMessage } from '../controllers';
+import { b_addProduct, buyProduct, b_addReward, getReward } from '../controllers';
 const indexRouter = express.Router();
 
-indexRouter.get('/', indexPage);
-indexRouter.get('/messages', messagesPage);
-indexRouter.post('/messages', addMessage);
+indexRouter.post('/baddproduct', b_addProduct);
+indexRouter.post('/baddreward', b_addReward);
+indexRouter.post('/product', buyProduct);
+indexRouter.get('/getrewards', getReward);
 export default indexRouter;

@@ -4,7 +4,7 @@ import { auth, logInWithEmailAndPassword } from "./firebase";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "./Login.css";
 
-function Login() {
+function B_Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
@@ -14,7 +14,7 @@ function Login() {
       // maybe trigger a loading screen
       return;
     }
-    if (user) navigate("/dashboard");
+    if (user) navigate("/b/dashboard");
   }, [user, loading]);
   return (
     <div className="login_page">
@@ -31,10 +31,10 @@ function Login() {
     </div>
     <button type="submit" className="btn btn-lg bg-primary button" onClick={() => logInWithEmailAndPassword(email, password)} >Login</button>
     <div className = "signup_redirect">
-        <p>Don't have an account? Create one <a href="/register" className="link-primary">here</a></p>
+        <p>Don't have an account? Create one <a href="/b/register" className="link-primary">here</a></p>
     </div>
     </div>
   );
 }
 
-export default Login;
+export default B_Login;

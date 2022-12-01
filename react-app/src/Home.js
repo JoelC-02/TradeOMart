@@ -1,22 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import { auth, logInWithEmailAndPassword, signInWithGoogle } from "./firebase";
-// import { useAuthState } from "react-firebase-hooks/auth";
 import "./Home.css";
 
 function Home() {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   const [user, loading, error] = useAuthState(auth);
-//   const navigate = useNavigate();
-//   useEffect(() => {
-//     if (loading) {
-//       // maybe trigger a loading screen
-//       return;
-//     }
-//     if (user) navigate("/dashboard");
-//   }, [user, loading]);
   return (
     <div className="home_page">
     <div className = "container-fluid">
@@ -35,7 +20,7 @@ function Home() {
                     <div className = "col-lg-6">
                         <h2>Business/Seller</h2>
                         <p>Looking to sell your products to a wider market</p>
-                        <a href="/login"><button className = "button btn btn-lg bg-primary">Business <br/>Login</button></a>
+                        <a href="/b/login"><button className = "button btn btn-lg bg-primary">Business <br/>Login</button></a>
                     </div>
                 </div>
                 <p className = "copy">Copyright © 2022 TradeOMart</p>

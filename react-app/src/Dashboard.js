@@ -1,35 +1,35 @@
 import React, { useEffect, useState } from "react";
-// import { useAuthState } from "react-firebase-hooks/auth";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
 import "./Dashboard.css";
-// import { auth, db, logout } from "./firebase";
-// import { query, collection, getDocs, where } from "firebase/firestore";
-// import Swal from 'sweetalert2'
+import { auth, db, logout } from "./firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
+import Swal from 'sweetalert2'
 
 function Dashboard() {
-//   const [user, loading, error] = useAuthState(auth);
-//   const [name, setName] = useState("");
-//   const navigate = useNavigate();
-//   const fetchUserName = async () => {
-//     try {
-//       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-//       const doc = await getDocs(q);
-//       const data = doc.docs[0].data();
-//       console.log(data);
-//       setName(data.name);
-//     } catch (err) {
-//       console.error(err);
-//       Swal.fire({
-//         icon: 'error',
-//         title: 'An error occured while fetching user data'
-//       })
-//     }
-//   };
-//   useEffect(() => {
-//     if (loading) return;
-//     if (!user) return navigate("/");
-//     fetchUserName();
-//   }, [user, loading]);
+  const [user, loading, error] = useAuthState(auth);
+  const [name, setName] = useState("");
+  const navigate = useNavigate();
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      console.log(data);
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      Swal.fire({
+        icon: 'error',
+        title: 'An error occured while fetching user data'
+      })
+    }
+  };
+  useEffect(() => {
+    if (loading) return;
+    if (!user) return navigate("/");
+    fetchUserName();
+  }, [user, loading]);
 
   return (
     <div className="dashboard">
@@ -48,7 +48,7 @@ function Dashboard() {
                             <li><a href="">Account</a></li>
                         </ul>
                     </nav>
-                    <img src={require("././images1/cart.png")} width="30px" height="30px" />
+                    <img src={require("./images1/cart.png")} width="30px" height="30px" />
                 </div>
                 <div className="row">
                     <div className="col-2">
@@ -85,6 +85,18 @@ function Dashboard() {
             <h2 className="title">Featured Products</h2>
             <div className="row">
                 <div className="col-4">
+                    <a href="/product"><img src={require("./images1/beats headphone.png")} /></a>
+                    <h4>Beats Headphone</h4>
+                    <div className="rating">
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star"></i>
+                        <i className="fa fa-star-o"></i>
+                    </div>
+                    <p>Rs.500</p>
+                </div>
+                <div className="col-4">
                     <img src={require("./images1/product-1.jpg")} />
                     <h4>Red Printed T-shirt</h4>
                     <div className="rating">
@@ -110,18 +122,6 @@ function Dashboard() {
                 </div>
                 <div className="col-4">
                     <img src={require("./images1/product-3.jpg")} />
-                    <h4>Red Printed T-shirt</h4>
-                    <div className="rating">
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star"></i>
-                        <i className="fa fa-star-o"></i>
-                    </div>
-                    <p>Rs.500</p>
-                </div>
-                <div className="col-4">
-                    <img src={require("./images1/product-4.jpg")} />
                     <h4>Red Printed T-shirt</h4>
                     <div className="rating">
                         <i className="fa fa-star"></i>
